@@ -56,16 +56,16 @@ namespace receiveemail
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, I'm is a pop3-client for outlook-mailbox (pop3.live.com).\n");
+            Console.WriteLine("Welcome to a programm! To download emails write your login and password.\n");
 
             // Hotmail/MSN POP3 server is "pop3.live.com"
-            Console.WriteLine("Your login:");
+            Console.WriteLine("Please, entry your login:");
             string login = Console.ReadLine();
 
-            Console.WriteLine("\nYour password:");
+            Console.WriteLine("\nPlease, entry your password:");
             string password = Console.ReadLine();
 
-            MailServer oServer = new MailServer("pop3.live.com",
+            MailServer oServer = new MailServer("pop3.mail.ru",
                         login, password, ServerProtocol.Pop3);
             MailClient oClient = new MailClient("TryIt");
 
@@ -91,9 +91,9 @@ namespace receiveemail
                     Console.WriteLine("From: {0}", oMail.From.ToString());
                     Console.WriteLine("Subject: {0}\r\n", oMail.Subject);
 
-                    if ( (i+1) % 5  == 0)
+                    if ( (i+1) % 10  == 0)
                     {
-                        Console.WriteLine("\n\nGet next 5 letter? [y/n]");
+                        Console.WriteLine("\n\nDownload next 10 letters? [y/n]");
                         string next = Console.ReadLine();
                         if (next == "y")
                         {
@@ -108,7 +108,7 @@ namespace receiveemail
 
                 // Quit and purge emails marked as deleted from Hotmail/MSN Live server.
                 oClient.Quit();
-                Console.WriteLine("\n\nGoodbye");
+                Console.WriteLine("\n\nSee you soon!");
                 Console.ReadLine();
             }
             catch (Exception ep)
